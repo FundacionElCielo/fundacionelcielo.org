@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }}{{ " · " + site.name if title != site.name }}</title>
+  <title>{{ title }}{{ " · " + site.name if site.name not in title }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <meta name="theme-color" content="{{ site.themeColor }}">
