@@ -1,0 +1,22 @@
+{
+  "name": "fundacionelcielo-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web del Centro de Conservación El Cielo (CCREIBEC) — Eleventy",
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve --port=8080",
+    "build": "rm -rf _site && eleventy",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "@fontsource-variable/plus-jakarta-sans": "^5.1.0",
+    "esbuild": "^0.24.0",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}
