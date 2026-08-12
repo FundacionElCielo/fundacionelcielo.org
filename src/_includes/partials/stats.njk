@@ -1,12 +1,14 @@
 {#
-  stats(items) — items: [{ value, label, numeric?, prefix?, suffix? }]
+  stats(items, opts) — items: [{ value, label, numeric?, prefix?, suffix? }]
   Si `numeric` está presente, el valor se anima con conteo ascendente.
+  opts: { compact } — compact reduce el tamaño de fuente, para valores largos
+  (p. ej. cifras en pesos) que no caben en una tarjeta angosta.
 #}
-{% macro stats(items) %}
+{% macro stats(items, opts={}) %}
 <div class="stats" data-reveal-group data-reveal-step="80">
   {%- for s in items %}
   <div class="stat" data-reveal="up">
-    <p class="stat__value">
+    <p class="stat__value{{ ' stat__value--compact' if opts.compact }}">
       {%- if s.numeric != undefined -%}
       <span
         data-counter-to="{{ s.numeric }}"

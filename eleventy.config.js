@@ -72,6 +72,7 @@ export default function (eleventyConfig) {
   // Passthrough copy
   // ---------------------------------------------------------------------
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/docs": "assets/docs" });
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({ "src/site.webmanifest": "site.webmanifest" });
 

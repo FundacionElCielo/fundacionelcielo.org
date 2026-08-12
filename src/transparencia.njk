@@ -1,0 +1,103 @@
+---
+layout: layouts/base.njk
+tags: ["page"]
+order: 3
+navLabel: "Transparencia"
+icon: "file-text"
+summary: "Estados financieros y balance de apertura de la Fundación El Cielo, disponibles para consulta pública."
+title: "Transparencia — Fundación El Cielo"
+description: "Estados financieros y balance de apertura del Centro de Conservación El Cielo (CCREIBEC), disponibles para consulta y descarga."
+permalink: "/transparencia/"
+---
+{% from "partials/hero.njk" import hero %}
+{% from "partials/stats.njk" import stats %}
+{% from "partials/cta.njk" import ctaBand %}
+{% from "partials/icons.njk" import icon %}
+
+{{ hero({
+  variant: "page",
+  eyebrow: "Rendición de Cuentas",
+  title: "Transparencia",
+  lede: "Nuestros estados financieros, disponibles para consulta y descarga como parte de nuestro compromiso con la rendición de cuentas.",
+  breadcrumbLabel: "Transparencia"
+}) }}
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">Documentos</span>
+      <h2 class="text-balance">Estados Financieros</h2>
+      <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+        Fundación Reserva y Centro de Investigación "El Cielo" · NIT 901.964.919-8. Documentos
+        certificados por el representante legal y la contadora pública de la Fundación.
+      </p>
+    </div>
+
+    <div class="grid grid-2" data-reveal-group data-reveal-step="100">
+      <a
+        href="/assets/docs/estados-financieros-2025.pdf"
+        class="card"
+        data-reveal="up"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="card__icon">{{ icon("file-text") }}</span>
+        <h3 class="card__title">Estados Financieros 2025</h3>
+        <p class="card__text">Estado de cambio en la situación financiera y estado de resultados integral a 31 de diciembre de 2025, con sus notas contables. Certificados en Villavicencio el 4 de marzo de 2026.</p>
+        <span class="card__link">Descargar PDF {{ icon("download") }}</span>
+      </a>
+
+      <a
+        href="/assets/docs/balance-apertura-fundacion.pdf"
+        class="card"
+        data-reveal="up"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="card__icon">{{ icon("file-text") }}</span>
+        <h3 class="card__title">Balance de Apertura</h3>
+        <p class="card__text">Balance inicial de apertura de la Fundación para el año 2025, con el capital aportado por los fundadores.</p>
+        <span class="card__link">Descargar PDF {{ icon("download") }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">En Cifras</span>
+      <h2 class="text-balance">Balance de apertura 2025</h2>
+      <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+        Capital inicial aportado por los fundadores al constituir la Fundación.
+      </p>
+    </div>
+    {{ stats([
+      { value: "$1.000.000", label: "Total activos" },
+      { value: "$0", label: "Total pasivos" },
+      { value: "$1.000.000", label: "Patrimonio (aportes fundadores)" }
+    ], { compact: true }) }}
+
+    <div class="section-head section-head--center" style="margin-top:var(--space-2xl);" data-reveal="up">
+      <h2 class="text-balance">Estados financieros a 31 de diciembre de 2025</h2>
+      <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+        Cifras del primer año de operación de la Fundación. Los ingresos provienen de donaciones;
+        el resultado del ejercicio refleja la inversión inicial en personal e infraestructura.
+      </p>
+    </div>
+    {{ stats([
+      { value: "$1.500.800", label: "Ingresos totales (donaciones)" },
+      { value: "$15.132.687", label: "Gastos de personal" },
+      { value: "$15.134.267", label: "Total pasivos" },
+      { value: "-$13.634.267", label: "Resultado del ejercicio" }
+    ], { compact: true }) }}
+  </div>
+</section>
+
+{{ ctaBand({
+  eyebrow: "Súmate",
+  title: "¿Quieres ser parte del cambio?",
+  text: "Escríbenos y descubre cómo apoyar la conservación y rehabilitación de la biodiversidad del Meta.",
+  primaryCta: { text: "Contáctanos", href: "/contacto/" },
+  secondaryCta: { text: "Conoce qué hacemos", href: "/que-hacemos/" }
+}) }}
