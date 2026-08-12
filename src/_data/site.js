@@ -9,12 +9,12 @@ export default {
   locale: "es_CO",
   themeColor: "#0e6e68",
 
-  // --- Placeholders de contacto -------------------------------------
-  // TODO: reemplazar con los datos reales de la fundación.
+  // --- Contacto -------------------------------------
+  // TODO: reemplazar whatsapp/address con los datos reales de la fundación.
   contact: {
-    email: "info@fundacionelcielo.com",
-    phone: "+57 300 000 0000",
-    phoneHref: "+573000000000",
+    email: "Miguel.prieto@fundacionelcielo.org",
+    phone: "+57 321 470 8240",
+    phoneHref: "+573214708240",
     whatsapp: "+57 300 000 0000",
     whatsappHref: "https://wa.me/573000000000",
     address: "Meta, Colombia",
