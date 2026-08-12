@@ -19,7 +19,7 @@ export default {
   },
 
   social: [
-    { label: "Instagram", key: "instagram", href: "#" },
+    { label: "Instagram", key: "instagram", href: "https://www.instagram.com/reserva_elcielo" },
     { label: "Facebook", key: "facebook", href: "#" },
     { label: "WhatsApp", key: "whatsapp", href: "https://wa.me/573214708240" },
   ],
