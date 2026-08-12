@@ -74,9 +74,9 @@ archivo como punto de partida en vez de usar Markdown.
 
 ## Datos de contacto y redes sociales
 
-Todo en `src/_data/site.js` bajo `contact` y `social` es **placeholder** (marcado con
-`TODO`). Reemplázalo con los datos reales de la fundación antes de publicar — se usa en
-el header, footer y la página de Contacto automáticamente.
+`src/_data/site.js` centraliza los datos de `contact` y `social` — se usan en el header,
+footer y la página de Contacto automáticamente. Los enlaces en `social` siguen siendo
+placeholders (`href: "#"`); reemplázalos con las cuentas reales cuando existan.
 
 ## Agregar fotos de actividades / resultados
 

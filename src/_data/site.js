@@ -9,10 +9,8 @@ export default {
   locale: "es_CO",
   themeColor: "#0e6e68",
 
-  // --- Contacto -------------------------------------
-  // TODO: reemplazar address con los datos reales de la fundación.
   contact: {
-    email: "Miguel.prieto@fundacionelcielo.org",
+    email: "miguel.prieto@fundacionelcielo.org",
     phone: "+57 321 470 8240",
     phoneHref: "+573214708240",
     whatsapp: "+57 321 470 8240",
@@ -20,7 +18,6 @@ export default {
     address: "Meta, Colombia",
   },
 
-  // TODO: reemplazar por las cuentas reales o quitar las que no apliquen.
   social: [
     { label: "Instagram", key: "instagram", href: "#" },
     { label: "Facebook", key: "facebook", href: "#" },
