@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: "Página no encontrada"
+description: "La página que buscas no existe o fue movida."
+permalink: "/404.html"
+eleventyExcludeFromCollections: true
+---
+{% from "partials/decorative.njk" import heroBlobs %}
+{% from "macros/button.njk" import button %}
+
+<section class="error-page">
+  {{ heroBlobs() }}
+  <div class="container" style="position:relative; z-index:1;">
+    <p class="error-page__code text-gradient" data-reveal="zoom">404</p>
+    <h1 style="margin-top:var(--space-sm);" data-reveal="up">Esta página voló fuera del nido</h1>
+    <p style="margin-top:var(--space-sm); font-size:var(--fs-lg); color:var(--c-ink-soft); max-width:34rem; margin-inline:auto; --reveal-delay:100ms" data-reveal="up">
+      La página que buscas no existe o fue movida. Volvamos a un lugar conocido.
+    </p>
+    <div class="hero__actions" style="justify-content:center; margin-top:var(--space-lg); --reveal-delay:180ms" data-reveal="up">
+      {{ button("Volver al inicio", "/", "primary") }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,233 @@
+---
+layout: layouts/base.njk
+tags: ["page"]
+order: 1
+navLabel: "Qué Hacemos"
+icon: "target"
+summary: "Nuestra misión, el contexto que nos da razón de ser, los ejes, fases y estrategias con los que trabajamos día a día por la fauna silvestre del Meta."
+title: "Qué Hacemos — Fundación El Cielo"
+description: "Misión, visión, contexto, ejes estratégicos, fases de rehabilitación e infraestructura del CCREIBEC."
+permalink: "/que-hacemos/"
+---
+{% from "partials/hero.njk" import hero %}
+{% from "partials/stats.njk" import stats %}
+{% from "partials/cta.njk" import ctaBand %}
+{% from "partials/icons.njk" import icon %}
+{% from "macros/button.njk" import button %}
+{% from "macros/card.njk" import card %}
+
+{{ hero({
+  variant: "page",
+  eyebrow: "Nuestro Trabajo",
+  title: "Qué Hacemos",
+  lede: "Los ejes, fases y estrategias con los que trabajamos día a día por la fauna silvestre del Meta.",
+  breadcrumbLabel: "Qué Hacemos"
+}) }}
+
+<section class="section section--tight" id="mision">
+  <div class="section-head section-head--center container" data-reveal="up">
+    <span class="eyebrow" style="justify-content:center;">Quiénes Somos</span>
+    <h2 class="text-balance">Misión y Visión Institucional</h2>
+  </div>
+  <div class="container">
+    <div class="grid grid-2" data-reveal-group data-reveal-step="100">
+      {{ card({
+        icon: "compass",
+        title: "Misión Institucional",
+        text: "Liderar la gestión integral de la biodiversidad en el departamento del Meta y la estratégica conexión Orinoquía-Amazonía, operando un centro científico de excelencia que supla el déficit regional de instalaciones especializadas para la fauna. Nuestra labor se fundamenta en la rehabilitación de fauna silvestre mediante protocolos estandarizados, la conservación de la flora nativa y en el manejo responsable de especies exóticas invasoras que alteran las dinámicas ecosistémicas. A través de la generación de conocimiento científico especializado y estrategias de educación ambiental participativa, mitigamos presiones antrópicas sobre la biodiversidad y el tráfico ilegal de especies, promoviendo así la coexistencia armónica y la toma de decisiones basada en evidencia científica."
+      }) }}
+      {{ card({
+        icon: "globe",
+        title: "Visión Institucional",
+        text: "Para el año 2031, la Fundación El Cielo se consolidará como el modelo de referencia en la Orinoquía para la conservación y rehabilitación de fauna silvestre, consolidándose como un Centro de Atención, Valoración y Rehabilitación de fauna silvestre, y conservación y restauración de la flora nativa. Seremos reconocidos como una plataforma científica que trasciende la atención clínica, destacándonos por la publicación de documentos técnico-científicos y nuevas guías de manejo de especies adaptadas a las condiciones ecológicas del Meta. Nuestra gestión demostrará su impacto mediante rigurosos sistemas de monitoreo post-liberación que validen la supervivencia, dispersión y adaptación de los individuos reintroducidos. Así, nos posicionaremos como un actor clave para la conservación de la biodiversidad que aporta insumos determinantes para los instrumentos de planificación territorial y contribuye tangiblemente a los Objetivos de Desarrollo Sostenible, garantizando un territorio más resiliente y biodiverso."
+      }) }}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="contexto">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <span class="eyebrow">El Contexto</span>
+      <h2 class="text-balance">Diversidad y desafíos en el Meta</h2>
+      <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+        El departamento del Meta es un territorio estratégico de la Orinoquia, poseedor de una de
+        las mayores diversidades biológicas de Colombia. Sin embargo, enfrenta presiones críticas:
+      </p>
+    </div>
+
+    <div class="grid grid-3" data-reveal-group data-reveal-step="90" style="margin-bottom:var(--space-2xl);">
+      <div class="icon-row" data-reveal="up">
+        <span class="icon-row__icon">{{ icon("building") }}</span>
+        <p>Urbanización y expansión agrícola acelerada.</p>
+      </div>
+      <div class="icon-row" data-reveal="up">
+        <span class="icon-row__icon">{{ icon("alert-triangle") }}</span>
+        <p>Tráfico ilegal de fauna silvestre.</p>
+      </div>
+      <div class="icon-row" data-reveal="up">
+        <span class="icon-row__icon">{{ icon("map-pin") }}</span>
+        <p>Conflictos socioambientales por desplazamiento.</p>
+      </div>
+    </div>
+
+    <div class="section-head" data-reveal="up">
+      <h3 class="text-balance" style="font-size:var(--fs-xl); color:var(--c-black);">¿Por qué es necesario el CCREIBEC?</h3>
+    </div>
+    <div class="grid grid-3" data-reveal-group data-reveal-step="90">
+      {{ card({ icon: "leaf", title: "Fragmentación", text: "La pérdida de hábitat pone en riesgo especies de vital importancia ecológica y cultural para la nación." }) }}
+      {{ card({ icon: "activity", title: "Especies invasoras", text: "Las especies exóticas alteran la dinámica natural de los ecosistemas, desplazando a nuestra fauna nativa." }) }}
+      {{ card({ icon: "shield-check", title: "Especies amenazadas", text: "Atención prioritaria para especies en categorías VU, EN y CR mediante protocolos estrictos de rehabilitación." }) }}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight" id="objetivo">
+  <div class="container">
+    <div class="statement" data-reveal="zoom">
+      <span class="statement__mark" aria-hidden="true">{{ icon("target") }}</span>
+      <span class="eyebrow" style="justify-content:center;">Objetivo General</span>
+      <p style="margin-top:var(--space-sm);">
+        Promover la conservación, rehabilitación y manejo integral de la biodiversidad mediante la
+        investigación aplicada y la educación participativa para la recuperación de ecosistemas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="ejes">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">Nuestros Ejes</span>
+      <h2 class="text-balance">Ejes Estratégicos de Acción</h2>
+    </div>
+    <div class="grid grid-4" data-reveal-group data-reveal-step="90">
+      {{ card({ icon: "shield-check", title: "Protocolos", text: "Diseñar e implementar protocolos de rehabilitación y liberación para fauna silvestre afectada." }) }}
+      {{ card({ icon: "activity", title: "Monitoreo", text: "Establecer sistemas de seguimiento post-liberación para evaluar el éxito adaptativo." }) }}
+      {{ card({ icon: "graduation-cap", title: "Estrategia educativa", text: "Sensibilizar sobre los impactos de especies exóticas e invasoras." }) }}
+      {{ card({ icon: "search", title: "Investigación", text: "Realizar estudios etológicos, nutricionales y de manejo para optimizar procesos." }) }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fases">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">El Proceso</span>
+      <h2 class="text-balance">Fases de Rehabilitación</h2>
+    </div>
+    <ol class="timeline" data-reveal-group data-reveal-step="120">
+      <li class="timeline__step" data-reveal="up">
+        <span class="timeline__num" aria-hidden="true">1</span>
+        <h3>Captura y diagnóstico</h3>
+        <p>Recolección controlada de individuos afectados o entregas voluntarias de la comunidad.</p>
+      </li>
+      <li class="timeline__step" data-reveal="up">
+        <span class="timeline__num" aria-hidden="true">2</span>
+        <h3>Atención especializada</h3>
+        <p>Manejo sanitario, nutricional y conductual en recintos diseñados para simular el hábitat natural.</p>
+      </li>
+      <li class="timeline__step" data-reveal="up">
+        <span class="timeline__num" aria-hidden="true">3</span>
+        <h3>Criterios técnicos</h3>
+        <p>Coordinación permanente con autoridades ambientales para garantizar la legalidad y bienestar.</p>
+      </li>
+    </ol>
+
+    <div class="photo-row photo-row--2" style="margin-top:var(--space-2xl);" data-reveal-group data-reveal-step="100">
+      <figure class="figure-photo figure-photo--tall" data-reveal="up">
+        {% contentImage "images/que-hacemos/rehabilitacion-ave-rapaz.png", "Ave rapaz juvenil en recuperación dentro de un recinto del CCREIBEC.", "(min-width: 640px) 50vw, 100vw" %}
+        <figcaption>Diagnóstico y atención especializada</figcaption>
+      </figure>
+      <figure class="figure-photo figure-photo--tall" data-reveal="up">
+        {% contentImage "images/que-hacemos/alimentacion-fauna.png", "Cría de fauna silvestre siendo alimentada a mano durante su recuperación.", "(min-width: 640px) 50vw, 100vw" %}
+        <figcaption>Manejo nutricional en recuperación</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="retorno">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">La Meta Final</span>
+      <h2 class="text-balance">Retorno a la Libertad</h2>
+    </div>
+    <div class="grid grid-2" data-reveal-group data-reveal-step="100">
+      {{ card({ icon: "map-pin", title: "Liberación controlada", text: "Selección de hábitats adecuados basados en criterios técnicos rigurosos para asegurar la supervivencia." }) }}
+      {{ card({ icon: "activity", title: "Monitoreo post-liberación", text: "Uso de marcaje, telemetría y observación directa para recolectar datos sobre el comportamiento en vida silvestre." }) }}
+    </div>
+
+    <div class="photo-row photo-row--2" style="margin-top:var(--space-lg);" data-reveal-group data-reveal-step="100">
+      <figure class="figure-photo figure-photo--wide" data-reveal="up">
+        {% contentImage "images/que-hacemos/loro-liberacion.png", "Ave silvestre lista para su retorno a la libertad, sostenida con cuidado antes de la liberación.", "(min-width: 640px) 50vw, 100vw" %}
+        <figcaption>Camino a la libertad</figcaption>
+      </figure>
+      <figure class="figure-photo figure-photo--wide" data-reveal="up">
+        {% contentImage "images/que-hacemos/traslado-liberacion.png", "Traslado por carretera hacia un sitio de liberación.", "(min-width: 640px) 50vw, 100vw" %}
+        <figcaption>Traslado hacia el sitio de liberación</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="infraestructura">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">Nuestras Instalaciones</span>
+      <h2 class="text-balance">Infraestructura de Vanguardia</h2>
+    </div>
+
+    <div class="grid grid-2" style="align-items:start; gap:var(--space-2xl); margin-bottom:var(--space-xl);">
+      <div data-reveal="left" style="max-width:320px;">
+        {{ stats([{ numeric: 40, prefix: "+", label: "Recintos especializados, diseñados para el manejo diferenciado de cada especie" }]) }}
+      </div>
+      <figure class="figure-photo figure-photo--wide" data-reveal="right">
+        {% contentImage "images/que-hacemos/recinto-campo.png", "Recinto del CCREIBEC en campo, rodeado de vegetación nativa.", "(min-width: 640px) 50vw, 100vw" %}
+        <figcaption>Trabajo en campo</figcaption>
+      </figure>
+    </div>
+
+    <div class="grid grid-3" data-reveal-group data-reveal-step="90">
+      {{ card({ icon: "leaf", title: "Aviarios y terrarios", text: "Manejo diferenciado para aves, reptiles y pequeños mamíferos." }) }}
+      {{ card({ icon: "globe", title: "Espacios acuáticos", text: "Geomembrana para especies como patos y flamencos, con tejas termoacústicas y materiales anticorrosivos." }) }}
+      {{ card({ icon: "shield-check", title: "Cuarentena", text: "Espacios de aislamiento sanitario y bienestar animal." }) }}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="educacion">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:start; gap:var(--space-2xl);">
+      <div data-reveal="left">
+        <span class="eyebrow">Sensibilización</span>
+        <h2 class="text-balance">Educación Ambiental e Investigación</h2>
+        <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+          El CCREIBEC no solo rehabilita individuos, sino que transforma conciencias a través de:
+        </p>
+      </div>
+      <div class="stack" style="gap:var(--space-lg);" data-reveal="right">
+        <div class="icon-row">
+          <span class="icon-row__icon">{{ icon("graduation-cap") }}</span>
+          <p>Talleres participativos, charlas y guías pedagógicas en escuelas rurales.</p>
+        </div>
+        <div class="icon-row">
+          <span class="icon-row__icon">{{ icon("search") }}</span>
+          <p>Estudios de ecología y etología aplicada a la conservación.</p>
+        </div>
+        <div class="icon-row">
+          <span class="icon-row__icon">{{ icon("building") }}</span>
+          <p>Publicaciones científicas que fortalecen la gestión ambiental regional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ ctaBand({
+  eyebrow: "Sigue explorando",
+  title: "Conoce nuestro impacto en la agenda global",
+  text: "Cómo nuestro trabajo local se conecta con los Objetivos de Desarrollo Sostenible.",
+  primaryCta: { text: "Ver nuestro impacto", href: "/impacto/" },
+  secondaryCta: { text: "Contáctanos", href: "/contacto/" }
+}) }}

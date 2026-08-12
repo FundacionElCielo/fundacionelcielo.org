@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+tags: ["page"]
+order: 2
+navLabel: "Impacto"
+icon: "globe"
+summary: "Cómo nuestro trabajo local se conecta con los Objetivos de Desarrollo Sostenible y la lucha contra el tráfico ilegal de fauna."
+title: "Impacto en la Agenda Global — Fundación El Cielo"
+description: "El compromiso del CCREIBEC con los Objetivos de Desarrollo Sostenible y la reducción del tráfico ilegal de fauna silvestre."
+permalink: "/impacto/"
+---
+{% from "partials/hero.njk" import hero %}
+{% from "partials/stats.njk" import stats %}
+{% from "partials/cta.njk" import ctaBand %}
+{% from "partials/icons.njk" import icon %}
+
+{{ hero({
+  variant: "page",
+  eyebrow: "Agenda Global",
+  title: "Impacto en la Agenda Global",
+  lede: "Cómo nuestro trabajo local se conecta con la agenda global de sostenibilidad.",
+  breadcrumbLabel: "Impacto"
+}) }}
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center; gap:var(--space-2xl);">
+      <div data-reveal="left">
+        <span class="statement__mark" aria-hidden="true">{{ icon("globe") }}</span>
+        <span class="eyebrow">Compromiso con los ODS</span>
+        <p style="font-size:var(--fs-xl); margin-top:var(--space-sm); font-weight:600; color:var(--c-black); line-height:var(--lh-snug);">
+          El CCREIBEC contribuye directamente a los Objetivos de Desarrollo Sostenible, asegurando
+          la conservación de la biodiversidad terrestre y acuática. Reducimos el tráfico ilegal y
+          la tenencia de fauna silvestre mediante la apropiación social del conocimiento.
+        </p>
+      </div>
+      <figure class="figure-photo figure-photo--tall" data-reveal="right">
+        {% contentImage "images/impacto/caiman-orinoquia.png", "Caimán en su hábitat natural, a orillas de un río de la Orinoquía.", "(min-width: 640px) 50vw, 100vw" %}
+        <figcaption>Biodiversidad de la Orinoquía</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">En Cifras</span>
+      <h2 class="text-balance">Nuestro impacto, en números</h2>
+    </div>
+    {{ stats([
+      { numeric: 40, prefix: "+", label: "Recintos especializados" },
+      { numeric: 4, label: "Ejes estratégicos de acción" },
+      { value: "VU · EN · CR", label: "Categorías de especies atendidas" },
+      { numeric: 2031, label: "Horizonte de nuestra visión" }
+    ]) }}
+  </div>
+</section>
+
+{{ ctaBand({
+  eyebrow: "Súmate",
+  title: "¿Quieres ser parte del cambio?",
+  text: "Escríbenos y descubre cómo apoyar la conservación y rehabilitación de la biodiversidad del Meta.",
+  primaryCta: { text: "Contáctanos", href: "/contacto/" },
+  secondaryCta: { text: "Conoce qué hacemos", href: "/que-hacemos/" }
+}) }}

@@ -1,0 +1,55 @@
+---
+layout: layouts/base.njk
+title: "Contacto"
+description: "Escríbenos y descubre cómo apoyar la conservación y rehabilitación de la biodiversidad del Meta, Colombia."
+permalink: "/contacto/"
+---
+{% from "partials/hero.njk" import hero %}
+{% from "partials/icons.njk" import icon %}
+
+{{ hero({
+  variant: "page",
+  eyebrow: "Hablemos",
+  title: "Contáctanos",
+  lede: "¿Tienes preguntas sobre nuestro trabajo o quieres apoyar la conservación y rehabilitación de la biodiversidad del Meta? Escríbenos por cualquiera de estos medios.",
+  breadcrumbLabel: "Contacto"
+}) }}
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="grid grid-3" data-reveal-group data-reveal-step="90">
+      <a href="mailto:{{ site.contact.email }}" class="card" data-reveal="up">
+        <span class="card__icon">{{ icon("mail") }}</span>
+        <h2 class="card__title">Correo electrónico</h2>
+        <p class="card__text">Escríbenos y te responderemos lo antes posible.</p>
+        <span class="card__link">{{ site.contact.email }} {{ icon("arrow-right") }}</span>
+      </a>
+
+      <a href="{{ site.contact.whatsappHref }}" class="card" data-reveal="up" target="_blank" rel="noopener">
+        <span class="card__icon">{{ icon("whatsapp") }}</span>
+        <h2 class="card__title">WhatsApp</h2>
+        <p class="card__text">La forma más rápida de conversar con nuestro equipo.</p>
+        <span class="card__link">{{ site.contact.whatsapp }} {{ icon("arrow-right") }}</span>
+      </a>
+
+      <div class="card" data-reveal="up">
+        <span class="card__icon">{{ icon("map-pin") }}</span>
+        <h2 class="card__title">Ubicación</h2>
+        <p class="card__text">Centro de Conservación El Cielo (CCREIBEC).</p>
+        <span class="card__link" style="color:var(--c-ink-soft);">{{ site.contact.address }}</span>
+      </div>
+    </div>
+
+    <div class="divider" aria-hidden="true"><span class="divider__dot"></span></div>
+
+    <div class="section-head section-head--center" style="margin-bottom:0;" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">Redes Sociales</span>
+      <h2 class="text-balance">Síguenos y acompaña nuestro trabajo</h2>
+      <div class="social-row" style="justify-content:center; margin-top:var(--space-md);">
+        {%- for s in site.social %}
+        <a href="{{ s.href }}" aria-label="{{ s.label }}" style="background:var(--gray-100); color:var(--c-ink-soft);">{{ icon(s.key) }}</a>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+</section>

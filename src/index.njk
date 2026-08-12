@@ -1,0 +1,118 @@
+---
+layout: layouts/base.njk
+title: "Fundación El Cielo — CCREIBEC"
+description: "CCREIBEC: Rehabilitación, Educación e Investigación en la Biodiversidad del Meta, Colombia. Fundación, reserva y centro de investigación."
+permalink: "/"
+---
+{% from "partials/hero.njk" import hero %}
+{% from "partials/stats.njk" import stats %}
+{% from "partials/cta.njk" import ctaBand %}
+{% from "partials/decorative.njk" import dust %}
+{% from "macros/button.njk" import button %}
+{% from "macros/card.njk" import card %}
+{% from "partials/icons.njk" import icon %}
+
+{{ hero({
+  variant: "home",
+  eyebrow: site.tagline,
+  title: 'Centro de Conservación <span class="text-gradient">El Cielo</span>',
+  lede: site.description,
+  primaryCta: { text: "Conoce nuestra misión", href: "/que-hacemos/#mision" },
+  secondaryCta: { text: site.nav.contactLabel, href: "/contacto/" },
+  chips: [
+    { value: "+40", label: "recintos especializados" },
+    { value: "2031", label: "horizonte de nuestra visión" }
+  ]
+}) }}
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center; gap:var(--space-2xl);">
+      <div data-reveal="left">
+        <span class="eyebrow">Quiénes Somos</span>
+        <h2 class="text-balance">Un centro científico de excelencia para la biodiversidad del Meta</h2>
+        <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+          Liderar la gestión integral de la biodiversidad en el departamento del Meta y la
+          estratégica conexión Orinoquía-Amazonía, operando un centro científico de excelencia
+          que supla el déficit regional de instalaciones especializadas para la fauna.
+        </p>
+        <div style="margin-top:var(--space-lg);">
+          {{ button("Leer nuestra misión y visión", "/que-hacemos/#mision", "ghost") }}
+        </div>
+      </div>
+
+      <div data-reveal="right" style="position:relative;">
+        <div style="position:relative; border-radius:var(--radius-xl); overflow:hidden; background:var(--gradient-brand-vivid); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-lg);">
+          <div class="decor" aria-hidden="true">{{ dust() }}</div>
+          <img
+            src="/assets/img/logo-icon-white.png"
+            alt="Isotipo de la Fundación El Cielo: un ave formada por dos capibaras enfrentados"
+            style="position:relative; z-index:1; width:62%; max-width:22rem;"
+            width="1200" height="515" loading="lazy" decoding="async"
+          >
+        </div>
+        <span class="dot-grid" style="bottom:-1.5rem; right:-1.5rem; top:auto; left:auto; color:var(--green-200);" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal="up">
+      <span class="eyebrow" style="justify-content:center;">Nuestros Ejes</span>
+      <h2 class="text-balance">Cuatro frentes de acción, un mismo propósito</h2>
+    </div>
+
+    <div class="grid grid-4" data-reveal-group data-reveal-step="90">
+      {{ card({ icon: "shield-check", title: "Protocolos", text: "Diseñar e implementar protocolos de rehabilitación y liberación para fauna silvestre afectada." }) }}
+      {{ card({ icon: "activity", title: "Monitoreo", text: "Establecer sistemas de seguimiento post-liberación para evaluar el éxito adaptativo." }) }}
+      {{ card({ icon: "graduation-cap", title: "Estrategia Educativa", text: "Sensibilizar sobre los impactos de especies exóticas e invasoras." }) }}
+      {{ card({ icon: "search", title: "Investigación", text: "Realizar estudios etológicos, nutricionales y de manejo para optimizar procesos." }) }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ stats([
+      { numeric: 40, prefix: "+", label: "Recintos especializados" },
+      { numeric: 4, label: "Ejes estratégicos de acción" },
+      { value: "VU · EN · CR", label: "Categorías de especies atendidas" },
+      { numeric: 2031, label: "Horizonte de nuestra visión" }
+    ]) }}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center; gap:var(--space-2xl);">
+      <div data-reveal="left" style="order:2;">
+        <span class="eyebrow">Nuestro Trabajo</span>
+        <h2 class="text-balance">Qué hacemos por la fauna del Meta</h2>
+        <p style="margin-top:var(--space-md); font-size:var(--fs-lg); color:var(--c-ink-soft);">
+          Promover la conservación, rehabilitación y manejo integral de la biodiversidad
+          mediante la investigación aplicada y la educación participativa para la
+          recuperación de ecosistemas.
+        </p>
+        <div style="margin-top:var(--space-lg);">
+          {{ button("Ver todo nuestro trabajo", "/que-hacemos/", "primary") }}
+        </div>
+      </div>
+      <div data-reveal="right" style="order:1;">
+        <div class="stack" style="gap:var(--space-sm);">
+          {{ card({ icon: "target", title: "Fases de rehabilitación", text: "Captura y diagnóstico, atención especializada y coordinación con autoridades ambientales.", href: "/que-hacemos/", linkText: "Ver el proceso completo", flat: true }) }}
+          {{ card({ icon: "compass", title: "Retorno a la libertad", text: "Liberación controlada y monitoreo post-liberación con telemetría y observación directa.", href: "/que-hacemos/", linkText: "Ver el proceso completo", flat: true }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ ctaBand({
+  eyebrow: "Súmate",
+  title: "¿Quieres ser parte del cambio?",
+  text: "Escríbenos y descubre cómo apoyar la conservación y rehabilitación de la biodiversidad del Meta.",
+  primaryCta: { text: "Contáctanos", href: "/contacto/" },
+  secondaryCta: { text: "Conoce nuestro impacto", href: "/impacto/" }
+}) }}
