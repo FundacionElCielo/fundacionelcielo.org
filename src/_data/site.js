@@ -2,7 +2,7 @@ export default {
   name: "Fundación El Cielo",
   shortName: "El Cielo",
   legalName: "Centro de Conservación El Cielo (CCREIBEC)",
-  tagline: "Fundación, reserva & centro de investigación",
+  tagline: "Fundación, reserva y centro de investigación",
   description:
     "CCREIBEC: Rehabilitación, Educación e Investigación en la Biodiversidad del Meta, Colombia.",
   url: "https://fundacionelcielo.org",
