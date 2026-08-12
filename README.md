@@ -108,7 +108,7 @@ No se incluyeron porque no había contenido real. Cuando lo tengas:
 El workflow `.github/workflows/deploy.yml` construye el sitio y lo publica en GitHub
 Pages en cada push a `main`.
 
-- `CNAME` en la raíz apunta a `fundacionelcielo.com` — **cámbialo o bórralo** si el
+- `CNAME` en la raíz apunta a `fundacionelcielo.org` — **cámbialo o bórralo** si el
   dominio final es otro, o si vas a usar `usuario.github.io/repositorio` en vez de un
   dominio propio.
 - Si usas un dominio propio, `eleventy.config.js` ya sirve el sitio desde la raíz (`/`).

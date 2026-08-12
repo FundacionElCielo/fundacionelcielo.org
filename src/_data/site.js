@@ -5,8 +5,7 @@ export default {
   tagline: "Fundación, reserva & centro de investigación",
   description:
     "CCREIBEC: Rehabilitación, Educación e Investigación en la Biodiversidad del Meta, Colombia.",
-  // TODO: reemplazar por el dominio real antes de publicar (afecta URLs canónicas y OG tags).
-  url: "https://fundacionelcielo.com",
+  url: "https://fundacionelcielo.org",
   locale: "es_CO",
   themeColor: "#0e6e68",
 
