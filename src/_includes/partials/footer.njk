@@ -1,0 +1,56 @@
+{% from "partials/icons.njk" import icon %}
+
+<footer class="site-footer">
+  <svg class="wave-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,90 480,0 720,20 C960,40 1200,90 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
+
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" aria-label="{{ site.name }} — inicio">
+          <img
+            src="/assets/img/logo-full-green.png"
+            alt=""
+            class="brand__mark"
+            width="900"
+            height="772"
+            loading="lazy"
+            decoding="async"
+          >
+        </a>
+        <p>{{ site.description }}</p>
+        <div class="social-row">
+          {%- for s in site.social %}
+          <a href="{{ s.href }}" aria-label="{{ s.label }}">{{ icon(s.key) }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+
+      <nav aria-label="Mapa del sitio">
+        <h2 class="footer-heading">Explorar</h2>
+        <ul class="footer-links">
+          <li><a href="/">{{ site.nav.homeLabel }}</a></li>
+          {%- for item in collections.pages %}
+          <li><a href="{{ item.url }}">{{ item.data.navLabel }}</a></li>
+          {%- endfor %}
+          <li><a href="/contacto/">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-heading">Contacto</h2>
+        <div class="footer-contact">
+          <a href="mailto:{{ site.contact.email }}">{{ icon("mail") }}{{ site.contact.email }}</a>
+          <a href="tel:{{ site.contact.phoneHref }}">{{ icon("phone") }}{{ site.contact.phone }}</a>
+          <span class="cluster">{{ icon("map-pin") }}{{ site.contact.address }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {% year %} {{ site.legalName }}. Todos los derechos reservados.</p>
+      <p>{{ site.contact.address }}</p>
+    </div>
+  </div>
+</footer>

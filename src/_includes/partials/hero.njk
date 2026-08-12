@@ -1,0 +1,50 @@
+{% from "partials/decorative.njk" import heroBlobs %}
+{% from "macros/button.njk" import button %}
+
+{#
+  hero(opts) — opts:
+    variant: "home" | "page" (default "page")
+    eyebrow, title, lede
+    primaryCta / secondaryCta: { text, href }
+    chips: [{ value, label }]
+    breadcrumbLabel: string (nombre corto para el breadcrumb; solo variant "page")
+#}
+{% macro hero(opts) %}
+<section class="hero{{ ' hero--home' if opts.variant == 'home' else ' hero--page' }}">
+  {{ heroBlobs() }}
+  <div class="container hero__inner">
+    {%- if opts.variant != "home" %}
+    <nav class="breadcrumb" aria-label="Ruta de navegación" data-reveal="fade">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ opts.breadcrumbLabel or opts.title }}</span>
+    </nav>
+    {%- endif %}
+
+    {%- if opts.eyebrow %}
+    <span class="eyebrow" data-reveal="up">{{ opts.eyebrow }}</span>
+    {%- endif %}
+
+    <h1 class="hero__title" data-reveal="up" style="--reveal-delay:80ms">{{ opts.title | safe }}</h1>
+
+    {%- if opts.lede %}
+    <p class="hero__lede" data-reveal="up" style="--reveal-delay:160ms">{{ opts.lede }}</p>
+    {%- endif %}
+
+    {%- if opts.primaryCta or opts.secondaryCta %}
+    <div class="hero__actions" data-reveal="up" style="--reveal-delay:240ms">
+      {%- if opts.primaryCta %}{{ button(opts.primaryCta.text, opts.primaryCta.href, "primary") }}{% endif %}
+      {%- if opts.secondaryCta %}{{ button(opts.secondaryCta.text, opts.secondaryCta.href, "secondary", { showArrow: false }) }}{% endif %}
+    </div>
+    {%- endif %}
+
+    {%- if opts.chips and opts.chips.length %}
+    <div class="hero__chips" data-reveal-group data-reveal-step="90">
+      {%- for chip in opts.chips %}
+      <span class="glass-chip" data-reveal="up"><strong>{{ chip.value }}</strong> {{ chip.label }}</span>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{% endmacro %}

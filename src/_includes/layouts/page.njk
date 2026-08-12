@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+---
+{% from "partials/hero.njk" import hero %}
+{% from "partials/cta.njk" import ctaBand %}
+
+{{ hero({
+  variant: "page",
+  eyebrow: eyebrow,
+  title: title,
+  lede: lede,
+  breadcrumbLabel: navLabel
+}) }}
+
+<article class="section section--tight">
+  <div class="container">
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>
+
+{% set idx = collections.pages | indexInCollection(page.url) %}
+{% set nextItem = collections.pages[idx + 1] %}
+
+{% if nextItem %}
+  {{ ctaBand({
+    eyebrow: "Sigue explorando",
+    title: "Conoce también: " + nextItem.data.navLabel,
+    text: nextItem.data.summary,
+    primaryCta: { text: "Ver " + nextItem.data.navLabel, href: nextItem.url }
+  }) }}
+{% else %}
+  {{ ctaBand({
+    eyebrow: "Súmate",
+    title: "¿Quieres ser parte del cambio?",
+    text: "Escríbenos y descubre cómo apoyar la conservación de la biodiversidad del Meta.",
+    primaryCta: { text: "Contáctanos", href: "/contacto/" }
+  }) }}
+{% endif %}

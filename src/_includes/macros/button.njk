@@ -1,0 +1,17 @@
+{% from "partials/icons.njk" import icon %}
+
+{#
+  button(text, href, variant, opts)
+  variant: "primary" | "secondary" | "ghost"
+  opts: { showArrow, onDark, small, block, class }
+#}
+{% macro button(text, href, variant="primary", opts={}) %}
+<a
+  href="{{ href }}"
+  class="btn btn--{{ variant }}{{ ' btn--on-dark' if opts.onDark }}{{ ' btn--sm' if opts.small }}{{ ' btn--block' if opts.block }}{{ ' ' + opts.class if opts.class }}"
+  {%- if opts.newTab %} target="_blank" rel="noopener"{% endif %}
+>
+  <span>{{ text }}</span>
+  {%- if opts.showArrow != false %}{{ icon("arrow-right") }}{% endif -%}
+</a>
+{% endmacro %}

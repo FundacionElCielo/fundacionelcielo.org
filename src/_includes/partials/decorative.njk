@@ -1,0 +1,30 @@
+{#
+  Formas decorativas reutilizables: blobs animados, retícula de puntos y
+  partículas discretas. Puramente ornamentales → aria-hidden.
+#}
+
+{% macro heroBlobs() %}
+<div class="decor" aria-hidden="true">
+  <span class="blob blob--teal blob--a" data-parallax="0.06"></span>
+  <span class="blob blob--green blob--b" data-parallax="-0.05"></span>
+  <span class="blob blob--teal blob--c" data-parallax="0.09"></span>
+  <span class="dot-grid"></span>
+  {{ dust() }}
+</div>
+{% endmacro %}
+
+{% macro bandBlobs() %}
+<div class="decor" aria-hidden="true">
+  <span class="blob blob--a"></span>
+  <span class="blob blob--b"></span>
+</div>
+{% endmacro %}
+
+{% macro dust() %}
+{%- for i in range(0, 7) -%}
+<span
+  class="dust"
+  style="top:{{ (i * 17 + 6) % 92 }}%; left:{{ (i * 29 + 4) % 94 }}%; width:{{ 4 + (i % 3) }}px; height:{{ 4 + (i % 3) }}px; animation-delay:{{ (i * 0.6) | round(1) }}s;"
+></span>
+{%- endfor -%}
+{% endmacro %}

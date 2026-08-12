@@ -1,0 +1,24 @@
+{#
+  stats(items) — items: [{ value, label, numeric?, prefix?, suffix? }]
+  Si `numeric` está presente, el valor se anima con conteo ascendente.
+#}
+{% macro stats(items) %}
+<div class="stats" data-reveal-group data-reveal-step="80">
+  {%- for s in items %}
+  <div class="stat" data-reveal="up">
+    <p class="stat__value">
+      {%- if s.numeric != undefined -%}
+      <span
+        data-counter-to="{{ s.numeric }}"
+        {% if s.prefix %}data-counter-prefix="{{ s.prefix }}"{% endif %}
+        {% if s.suffix %}data-counter-suffix="{{ s.suffix }}"{% endif %}
+      >{{ s.prefix }}0{{ s.suffix }}</span>
+      {%- else -%}
+      {{ s.value }}
+      {%- endif -%}
+    </p>
+    <p class="stat__label">{{ s.label }}</p>
+  </div>
+  {%- endfor %}
+</div>
+{% endmacro %}

@@ -1,0 +1,24 @@
+{% from "partials/decorative.njk" import bandBlobs %}
+{% from "macros/button.njk" import button %}
+
+{#
+  ctaBand(opts) — opts: { eyebrow, title, text, primaryCta:{text,href}, secondaryCta:{text,href} }
+#}
+{% macro ctaBand(opts) %}
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-band" data-reveal="zoom">
+      {{ bandBlobs() }}
+      <div style="position:relative;z-index:1;">
+        {%- if opts.eyebrow %}<span class="eyebrow cta-band__eyebrow">{{ opts.eyebrow }}</span>{% endif %}
+        <h2>{{ opts.title }}</h2>
+        {%- if opts.text %}<p>{{ opts.text }}</p>{% endif %}
+        <div class="cta-band__actions">
+          {%- if opts.primaryCta %}{{ button(opts.primaryCta.text, opts.primaryCta.href, "primary") }}{% endif %}
+          {%- if opts.secondaryCta %}{{ button(opts.secondaryCta.text, opts.secondaryCta.href, "secondary", { onDark: true, showArrow: false }) }}{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

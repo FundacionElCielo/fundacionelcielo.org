@@ -1,0 +1,23 @@
+{% from "partials/icons.njk" import icon %}
+
+{#
+  card(opts) — opts: { title, text, href, icon, linkText, flat, revealDelay }
+#}
+{% macro card(opts) %}
+<{{ "a" if opts.href else "div" }}
+  {%- if opts.href %} href="{{ opts.href }}"{% endif %}
+  class="card{{ ' card--flat' if opts.flat }}"
+  data-reveal="up"
+>
+  {%- if opts.icon %}
+  <span class="card__icon">{{ icon(opts.icon) }}</span>
+  {%- endif %}
+  <h3 class="card__title">{{ opts.title }}</h3>
+  {%- if opts.text %}
+  <p class="card__text">{{ opts.text }}</p>
+  {%- endif %}
+  {%- if opts.href and opts.linkText %}
+  <span class="card__link">{{ opts.linkText }} {{ icon("arrow-right") }}</span>
+  {%- endif %}
+</{{ "a" if opts.href else "div" }}>
+{% endmacro %}
