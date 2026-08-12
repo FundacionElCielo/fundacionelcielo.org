@@ -1,0 +1,105 @@
+/**
+ * Animaciones — keyframes globales y el sistema `data-reveal` de aparición al hacer scroll.
+ */
+
+/* ---- Blobs / fondos con movimiento sutil -------------------------------- */
+@keyframes blob-float-a {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+  }
+  50% {
+    transform: translate(3%, 5%) scale(1.08) rotate(8deg);
+    border-radius: 58% 42% 38% 62% / 40% 62% 38% 60%;
+  }
+  100% {
+    transform: translate(-3%, -2%) scale(0.98) rotate(-6deg);
+    border-radius: 45% 55% 55% 45% / 55% 45% 55% 45%;
+  }
+}
+
+@keyframes blob-float-b {
+  0% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 55% 45% 40% 60% / 50% 55% 45% 50%;
+  }
+  50% {
+    transform: translate(-4%, 4%) scale(1.1);
+    border-radius: 40% 60% 60% 40% / 45% 40% 60% 55%;
+  }
+  100% {
+    transform: translate(2%, -4%) scale(1);
+    border-radius: 55% 45% 45% 55% / 55% 45% 55% 45%;
+  }
+}
+
+@keyframes dust-float {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(8px, -22px);
+    opacity: 0.55;
+  }
+}
+
+@keyframes gradient-pan {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- Sistema de "reveal" al hacer scroll -------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="up"] {
+  transform: translateY(28px);
+}
+
+[data-reveal="down"] {
+  transform: translateY(-28px);
+}
+
+[data-reveal="left"] {
+  transform: translateX(-36px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(36px);
+}
+
+[data-reveal="zoom"] {
+  transform: scale(0.94);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

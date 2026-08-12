@@ -1,0 +1,135 @@
+/**
+ * Footer.
+ */
+.site-footer {
+  position: relative;
+  background: var(--c-black);
+  color: var(--gray-300);
+  padding-top: var(--space-3xl);
+}
+
+.site-footer .wave-divider {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  color: var(--c-white);
+  transform: translateY(-99%);
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr 1fr;
+  }
+}
+
+.footer-brand .brand__mark {
+  height: 2.5rem;
+}
+
+.footer-brand p {
+  margin-top: var(--space-sm);
+  max-width: 32ch;
+  color: var(--gray-400);
+  font-size: var(--fs-sm);
+}
+
+.footer-heading {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.footer-links a {
+  font-size: var(--fs-sm);
+  color: var(--gray-300);
+  transition: color var(--dur-fast) var(--ease-out-quart);
+}
+
+.footer-links a:hover {
+  color: var(--c-white);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+}
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-300);
+  transition: color var(--dur-fast) var(--ease-out-quart);
+}
+
+.footer-contact a:hover {
+  color: var(--teal-300);
+}
+
+.footer-contact svg {
+  width: 1.1em;
+  height: 1.1em;
+  color: var(--teal-400);
+  flex-shrink: 0;
+}
+
+.social-row {
+  display: flex;
+  gap: var(--space-2xs);
+  margin-top: var(--space-sm);
+}
+
+.social-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gray-300);
+  transition:
+    background var(--dur-fast) var(--ease-out-quart),
+    color var(--dur-fast) var(--ease-out-quart),
+    transform var(--dur-fast) var(--ease-out-quart);
+}
+
+.social-row a:hover {
+  background: var(--gradient-brand);
+  color: var(--c-white);
+  transform: translateY(-3px);
+}
+
+.social-row svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-block: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--gray-500);
+}

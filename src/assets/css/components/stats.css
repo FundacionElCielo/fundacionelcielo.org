@@ -1,0 +1,54 @@
+/**
+ * Banda de estadísticas.
+ */
+.stats {
+  display: grid;
+  gap: var(--space-md);
+  /* minmax(160px, 1fr) en vez de un número fijo de columnas: las tarjetas
+     se estiran para llenar exactamente el ancho disponible (sin dejar
+     huecos ni forzar un salto de línea) tanto con 1 cifra en una columna
+     angosta como con 4 en una sección de ancho completo. */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.stat {
+  position: relative;
+  padding: var(--space-lg) var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  text-align: center;
+  overflow: hidden;
+}
+
+.stat::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--gradient-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.stat.is-visible::after {
+  transform: scaleX(1);
+}
+
+.stat__value {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  color: var(--c-black);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  margin-top: var(--space-3xs);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--c-ink-soft);
+  letter-spacing: 0.02em;
+}

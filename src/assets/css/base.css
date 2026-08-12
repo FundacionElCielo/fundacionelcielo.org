@@ -1,0 +1,85 @@
+/**
+ * Tipografía y elementos base.
+ */
+@font-face {
+  font-family: "Plus Jakarta Sans Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url("/assets/fonts/plus-jakarta-sans-variable.woff2") format("woff2-variations");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%;
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+body {
+  font-weight: 450;
+  font-size: var(--fs-base);
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--c-black);
+}
+
+h1 {
+  font-size: var(--fs-5xl);
+}
+
+h2 {
+  font-size: var(--fs-3xl);
+}
+
+h3 {
+  font-size: var(--fs-2xl);
+}
+
+h4 {
+  font-size: var(--fs-xl);
+}
+
+p {
+  color: var(--c-ink-soft);
+}
+
+a {
+  transition: color var(--dur-fast) var(--ease-out-quart);
+}
+
+strong,
+b {
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+small {
+  font-size: var(--fs-xs);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--c-border);
+}
+
+::placeholder {
+  color: var(--gray-400);
+}
+
+img {
+  height: auto;
+}

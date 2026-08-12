@@ -1,0 +1,132 @@
+/**
+ * Cards / tarjetas informativas — con brillo que sigue el puntero y hover de profundidad.
+ */
+.card {
+  --mx: 50%;
+  --my: 0%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    280px circle at var(--mx) var(--my),
+    rgba(14, 110, 104, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out-quart);
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--teal-200);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  background: var(--gradient-brand-soft);
+  color: var(--c-brand-strong);
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+.card__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.card:hover .card__icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.card__title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.card__text {
+  font-size: var(--fs-sm);
+  color: var(--c-ink-soft);
+  line-height: var(--lh-relaxed);
+}
+
+.card__link {
+  margin-top: auto;
+  padding-top: var(--space-2xs);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--c-brand-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.card__link svg {
+  width: 1em;
+  height: 1em;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.card:hover .card__link svg {
+  transform: translateX(4px);
+}
+
+/* Variante compacta, usada en la grilla de páginas del home */
+.card--flat {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+/* Chips flotantes con glassmorphism (usados sobre el hero) */
+.glass-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: var(--shadow-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--c-black);
+}
+
+.glass-chip strong {
+  color: var(--c-brand-strong);
+}

@@ -1,0 +1,103 @@
+/**
+ * Hero — versión alta (home) y compacta (páginas interiores).
+ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--header-h) + var(--space-2xl));
+  padding-bottom: var(--space-2xl);
+  background: linear-gradient(180deg, var(--teal-50) 0%, var(--c-white) 65%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.hero__title {
+  font-size: var(--fs-4xl);
+  max-width: 20ch;
+}
+
+.hero__lede {
+  font-size: var(--fs-lg);
+  max-width: 52ch;
+  color: var(--c-ink-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xs);
+}
+
+/* ---- Variante alta: home ------------------------------------------------ */
+.hero--home {
+  padding-top: calc(var(--header-h) + var(--space-3xl));
+  padding-bottom: var(--space-3xl);
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+}
+
+.hero--home .hero__title {
+  font-size: var(--fs-5xl);
+  max-width: 17ch;
+}
+
+.hero--home .hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+/* ---- Variante compacta: páginas interiores ------------------------------ */
+.hero--page {
+  padding-top: calc(var(--header-h) + var(--space-xl));
+  padding-bottom: var(--space-xl);
+  min-height: 0;
+}
+
+.hero--page .hero__title {
+  font-size: var(--fs-4xl);
+}
+
+/* ---- Decoración específica del hero ------------------------------------- */
+.hero .blob--a {
+  width: 32rem;
+  height: 32rem;
+  top: -12rem;
+  right: -10rem;
+}
+
+.hero .blob--b {
+  width: 24rem;
+  height: 24rem;
+  bottom: -10rem;
+  left: -8rem;
+}
+
+.hero .blob--c {
+  width: 16rem;
+  height: 16rem;
+  top: 40%;
+  right: 18%;
+  opacity: 0.3;
+}
+
+.hero .dot-grid {
+  top: var(--space-xl);
+  left: -1rem;
+}
+
+/* NOTA: el ancho de lectura del hero ya lo dan .hero__title / .hero__lede
+   (max-width en `ch`, ver arriba). No limitar el max-width de .hero__inner
+   aquí: esa clase también lleva `.container` (centrado con margin-inline:auto
+   a 1280px) — combinarlo con un max-width más chico lo re-centraba,
+   desplazando todo el bloque del hero (breadcrumb, título, texto) hacia la
+   derecha y desalineándolo del resto de las secciones de la página. */

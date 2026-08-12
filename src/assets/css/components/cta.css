@@ -1,0 +1,80 @@
+/**
+ * Banda de llamada a la acción — degradado de marca animado.
+ */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+  isolation: isolate;
+  background: var(--gradient-brand-vivid);
+  background-size: 200% 200%;
+  animation: gradient-pan 14s ease-in-out infinite;
+  color: var(--c-white);
+}
+
+.cta-band__eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cta-band__eyebrow::before {
+  background: var(--c-white);
+}
+
+.cta-band h2 {
+  color: var(--c-white);
+  max-width: 24ch;
+  margin-inline: auto;
+}
+
+.cta-band p {
+  margin-top: var(--space-sm);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 42ch;
+  margin-inline: auto;
+}
+
+.cta-band__actions {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.cta-band__actions .btn--primary {
+  background: var(--c-white);
+  color: var(--c-brand-strong);
+  box-shadow: 0 16px 40px -12px rgba(10, 15, 14, 0.35);
+}
+
+.cta-band__actions .btn--primary::before {
+  background: linear-gradient(120deg, transparent 20%, rgba(14, 110, 104, 0.15) 50%, transparent 80%);
+}
+
+.cta-band .blob {
+  opacity: 0.35;
+}
+
+.cta-band .blob--a {
+  width: 22rem;
+  height: 22rem;
+  top: -8rem;
+  left: -6rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.65), transparent 70%);
+}
+
+.cta-band .blob--b {
+  width: 18rem;
+  height: 18rem;
+  bottom: -9rem;
+  right: -5rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-band {
+    animation: none;
+  }
+}

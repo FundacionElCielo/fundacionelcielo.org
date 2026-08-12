@@ -1,0 +1,293 @@
+/**
+ * `.prose` — estilos automáticos para el contenido renderizado desde Markdown.
+ * Cada bloque "##" llega envuelto en <section class="prose-section"> (ver
+ * eleventy.config.js) para poder darle numeración, ritmo y tarjetas reales.
+ */
+.prose {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  color: var(--c-ink-soft);
+  counter-reset: prose-section;
+}
+
+.prose-section {
+  position: relative;
+}
+
+.prose-section + .prose-section {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--c-border);
+}
+
+.prose-section > * + * {
+  margin-top: var(--space-md);
+}
+
+/* ---- Encabezados de sección, numerados --------------------------------- */
+.prose-section::before {
+  counter-increment: prose-section;
+  content: counter(prose-section, decimal-leading-zero);
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--c-white);
+  background: var(--gradient-brand);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+}
+
+.prose h2 {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--c-black);
+  scroll-margin-top: calc(var(--header-h) + var(--space-md));
+}
+
+.prose h3,
+.prose h4 {
+  margin-top: var(--space-lg);
+  color: var(--c-black);
+  scroll-margin-top: calc(var(--header-h) + var(--space-md));
+}
+
+.prose h3 {
+  font-size: var(--fs-xl);
+}
+
+/* Pequeño "#" que aparece al pasar el cursor — el texto del encabezado
+   siempre es visible; solo se anima el símbolo de ancla. */
+.prose .header-anchor {
+  margin-left: 0.5rem;
+  opacity: 0;
+  color: var(--c-brand);
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease-out-quart);
+}
+
+.prose h2:hover .header-anchor,
+.prose h3:hover .header-anchor,
+.prose h4:hover .header-anchor,
+.prose .header-anchor:focus-visible {
+  opacity: 1;
+}
+
+/* Primer párrafo de cada sección: un poco más grande, como "dek" editorial */
+.prose-section > p:first-of-type {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-relaxed);
+}
+
+.prose p {
+  line-height: var(--lh-relaxed);
+}
+
+/* ---- Listas: se convierten en tarjetas cuando tienen 3+ items ---------- */
+.prose ul,
+.prose ol {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.prose li {
+  position: relative;
+  padding-left: 1.75rem;
+  line-height: var(--lh-relaxed);
+}
+
+.prose ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 0.2rem;
+  background: var(--gradient-brand);
+  transform: rotate(45deg);
+}
+
+.prose ol {
+  counter-reset: prose-ol;
+}
+
+.prose ol li {
+  counter-increment: prose-ol;
+}
+
+.prose ol li::before {
+  content: counter(prose-ol);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--c-white);
+  background: var(--gradient-brand);
+  border-radius: 50%;
+}
+
+/* Listas con 3 o más elementos → grid de tarjetas */
+.prose ul:has(> li:nth-child(3)),
+.prose ol:has(> li:nth-child(3)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-sm);
+}
+
+/* El marcador (rombo o círculo numerado) se coloca en su propia franja
+   arriba de la tarjeta — nunca a la izquierda del texto — así nunca se
+   solapan sin importar el tamaño del marcador o el largo del texto. */
+.prose ul:has(> li:nth-child(3)) li,
+.prose ol:has(> li:nth-child(3)) li {
+  padding: calc(var(--space-md) + 1.5rem) var(--space-md) var(--space-md) var(--space-md);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.prose ul:has(> li:nth-child(3)) li:hover,
+.prose ol:has(> li:nth-child(3)) li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--teal-200);
+}
+
+.prose ul:has(> li:nth-child(3)) li::before,
+.prose ol:has(> li:nth-child(3)) li::before {
+  left: var(--space-md);
+  top: var(--space-md);
+}
+
+/* "**Etiqueta**: descripción" → la etiqueta se resalta en línea (mantenerla
+   inline evita que los ":" que le siguen en el texto original queden
+   huérfanos en su propia línea, como pasaría con display:block). */
+.prose li > strong:first-child {
+  color: var(--c-brand-strong);
+}
+
+.prose strong {
+  color: var(--c-black);
+}
+
+.prose a:not(.header-anchor) {
+  color: var(--c-brand-strong);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--teal-200);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color var(--dur-fast) var(--ease-out-quart);
+}
+
+.prose a:not(.header-anchor):hover {
+  text-decoration-color: currentColor;
+}
+
+/* Citas / bloques destacados — un blockquote de Markdown se vuelve un callout */
+.prose blockquote {
+  position: relative;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--gradient-brand-soft);
+  border-left: 4px solid var(--c-brand);
+  font-size: var(--fs-base);
+  color: var(--gray-800);
+}
+
+.prose blockquote p {
+  color: inherit;
+}
+
+.prose blockquote :first-child {
+  margin-top: 0;
+}
+
+/* Tablas */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+}
+
+.prose th,
+.prose td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.prose thead th {
+  background: var(--c-bg-alt);
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Código */
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--gray-100);
+  padding: 0.15em 0.4em;
+  border-radius: 0.35em;
+  color: var(--teal-800);
+}
+
+.prose pre {
+  padding: var(--space-md);
+  background: var(--c-black);
+  color: var(--gray-100);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Imágenes / figuras (para las fotos que se agreguen más adelante) */
+.prose figure {
+  margin-top: var(--space-lg);
+}
+
+.prose img,
+.prose picture {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.prose figcaption {
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-sm);
+  color: var(--gray-400);
+  text-align: center;
+}
+
+.prose hr {
+  margin-block: var(--space-2xl);
+}

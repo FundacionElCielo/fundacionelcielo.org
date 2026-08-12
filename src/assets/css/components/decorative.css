@@ -1,0 +1,151 @@
+/**
+ * Elementos decorativos: blobs, formas flotantes, partículas, líneas, ondas.
+ */
+.decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Blobs animados ---------------------------------------------------- */
+.blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.55;
+  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+  will-change: transform, border-radius;
+}
+
+.blob--teal {
+  background: radial-gradient(circle at 30% 30%, var(--teal-300), var(--teal-600) 75%);
+}
+
+.blob--green {
+  background: radial-gradient(circle at 65% 35%, var(--green-200), var(--green-500) 75%);
+}
+
+.blob--a {
+  animation: blob-float-a 22s var(--ease-out-quart) infinite alternate;
+}
+
+.blob--b {
+  animation: blob-float-b 26s var(--ease-out-quart) infinite alternate;
+}
+
+.blob--c {
+  animation: blob-float-a 19s var(--ease-out-quart) infinite alternate-reverse;
+}
+
+/* ---- Puntos flotantes (partículas discretas) --------------------------- */
+.dust {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--teal-400);
+  opacity: 0.4;
+  animation: dust-float 10s ease-in-out infinite;
+}
+
+.dust:nth-child(odd) {
+  background: var(--green-400);
+  animation-duration: 13s;
+}
+
+/* ---- Retícula de puntos (acento geométrico de esquina) ----------------- */
+.dot-grid {
+  position: absolute;
+  width: 9rem;
+  height: 9rem;
+  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  color: var(--teal-200);
+  opacity: 0.8;
+}
+
+/* ---- Separador de onda -------------------------------------------------- */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--c-bg-alt);
+}
+
+.wave-divider path {
+  fill: currentColor;
+}
+
+/* ---- Separador de línea con punto de marca ------------------------------ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-block: var(--space-xl);
+  color: var(--c-border);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+.divider__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  flex-shrink: 0;
+}
+
+/* ---- Línea SVG que se dibuja al entrar en viewport ---------------------- */
+.draw-line path {
+  stroke-dasharray: var(--path-length, 1000);
+  stroke-dashoffset: var(--path-length, 1000);
+  transition: stroke-dashoffset 1.4s var(--ease-out-expo);
+}
+
+.draw-line.is-visible path {
+  stroke-dashoffset: 0;
+}
+
+/* ---- Eyebrow (etiqueta pequeña sobre títulos) --------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-brand-strong);
+  margin-bottom: var(--space-sm);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: var(--gradient-brand);
+  border-radius: var(--radius-full);
+}
+
+/* ---- Texto con degradado de marca --------------------------------------- */
+.text-gradient {
+  background: var(--gradient-brand);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-pan 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob,
+  .dust,
+  .text-gradient {
+    animation: none !important;
+  }
+}
