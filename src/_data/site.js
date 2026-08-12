@@ -21,7 +21,7 @@ export default {
   social: [
     { label: "Instagram", key: "instagram", href: "#" },
     { label: "Facebook", key: "facebook", href: "#" },
-    { label: "WhatsApp", key: "whatsapp", href: "#" },
+    { label: "WhatsApp", key: "whatsapp", href: "https://wa.me/573214708240" },
   ],
 
   // Navegación principal. Las páginas de contenido (src/content/*.md) se
